@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio de Astrofotografía</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ====== CABECERA / NAV ====== -->
+  <header class="top-bar">
+    <div class="logo">
+      <span class="logo-mark">★</span>
+      <span class="logo-text">Tu Nombre · Astrofotografía</span>
+    </div>
+    <nav class="main-nav">
+      <a href="#gallery">Galería</a>
+      <a href="#about">Sobre mí</a>
+      <a href="#gear">Equipo</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tagline">Cielos oscuros, sensores calientes y mucha paciencia.</p>
+      <h1>Portafolio de Astrofotografía</h1>
+      <p class="hero-subtitle">
+        Una colección de nebulosas, galaxias y cúmulos capturados desde mi propio cielo.
+      </p>
+      <a href="#gallery" class="btn btn-primary">Ver galería</a>
+    </div>
+  </section>
+
+  <!-- ====== GALERÍA ====== -->
+  <main id="gallery" class="gallery-section">
+    <h2>Objetos de cielo profundo</h2>
+    <p class="section-intro">
+      Cada tarjeta muestra una imagen procesada y, al hacer clic, se abre una ficha
+      con detalles técnicos: óptica, integración, filtros y software usado.
+    </p>
+
+    <div class="gallery-grid">
+      <!-- Tarjeta 1: M31 -->
+      <article class="card"
+        data-title="M31 · Galaxia de Andrómeda"
+        data-info="
+        Óptica: 135 mm f/2.8 · Star Adventurer Mini
+        Integración: 100×30 s · ISO 800
+        Filtro: Full spectrum
+        Cámara: Canon 550D (APS-C)
+        Procesado: Siril · GIMP
+        ">
+        <div class="card-image">
+          <img src="images/M31_completo.jpg" alt="M31 Galaxia de Andrómeda" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>M31 · Galaxia de Andrómeda</h3>
+          <p>Una espiral gigante a unos 2,5 millones de años luz.</p>
+          <span class="chip">Galaxia</span>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2: M42 -->
+      <article class="card"
+        data-title="M42 · Nebulosa de Orión"
+        data-info="
+        Óptica: 135 mm f/2.8 o 200 mm f/3.5
+        Integración: 60×30 s · ISO 800–1600
+        Filtro: CLS-CCD
+        Procesado: Siril (PCC, extracción de gradiente) + GIMP
+        ">
+        <div class="card-image">
+          <img src="images/m42.jpg" alt="M42 Nebulosa de Orión" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>M42 · Nebulosa de Orión</h3>
+          <p>Una región de formación estelar extremadamente brillante.</p>
+          <span class="chip">Nebulosa</span>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3: M45 -->
+      <article class="card"
+        data-title="M45 · Las Pléyades"
+        data-info="
+        Óptica: 200 mm f/5.6
+        Integración: 70×30 s · ISO 1600
+        Filtro: sin filtro / CLS-CCD según cielo
+        Notas: reflejos y halos característicos en estrellas brillantes.
+        ">
+        <div class="card-image">
+          <img src="images/m45.jpg" alt="M45 Pléyades" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>M45 · Las Pléyades</h3>
+          <p>Cúmulo abierto envuelto en un tenue reflejo azulado.</p>
+          <span class="chip">Cúmulo abierto</span>
+        </div>
+      </article>
+
+      <!-- Tarjeta 4: Nebulosa extra (ej. Roseta) -->
+      <article class="card"
+        data-title="NGC 2237 · Nebulosa de la Roseta"
+        data-info="
+        Óptica: 135 mm o 200 mm · f/4–f/5.6
+        Integración: 90×60 s · ISO 800
+        Filtro: CLS-CCD recomendado
+        Comentario: ideal para cielos con algo de contaminación lumínica.
+        ">
+        <div class="card-image">
+          <img src="images/roseta.jpg" alt="Nebulosa de la Roseta" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3>Nebulosa de la Roseta</h3>
+          <p>Una gran nebulosa de emisión en Monoceros.</p>
+          <span class="chip">Nebulosa de emisión</span>
+        </div>
+      </article>
+
+      <!-- Puedes duplicar <article class="card"> y crear más objetos -->
+    </div>
+  </main>
+
+  <!-- ====== SOBRE MÍ ====== -->
+  <section id="about" class="text-section">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy un aficionado a la astrofotografía que intenta exprimir al máximo un equipo ligero:
+      montura de viaje, objetivos antiguos y una cámara DSLR. Este sitio recopila mis mejores
+      capturas y sirve como diario de aprendizaje continuo.
+    </p>
+    <p>
+      Me interesa especialmente el procesado de cielo profundo, la optimización de las sesiones
+      (planificación, enfoque, guiado manual) y el uso de software libre como Siril, GIMP y
+      herramientas de plate solving.
+    </p>
+  </section>
+
+  <!-- ====== EQUIPO ====== -->
+  <section id="gear" class="text-section gear-section">
+    <h2>Equipo</h2>
+    <div class="gear-grid">
+      <div class="gear-card">
+        <h3>Montura & trípode</h3>
+        <ul>
+          <li>Star Adventurer Mini (SAM)</li>
+          <li>Trípode Neewer 77"</li>
+          <li>L-bracket para equilibrar cámara + objetivo</li>
+        </ul>
+      </div>
+      <div class="gear-card">
+        <h3>Óptica principal</h3>
+        <ul>
+          <li>Petri 200 mm f/3.5 (T-mount)</li>
+          <li>135 mm f/2.8 (Pentacon / similar)</li>
+          <li>50 mm f/1.8 para grandes campos</li>
+        </ul>
+      </div>
+      <div class="gear-card">
+        <h3>Filtros & accesorios</h3>
+        <ul>
+          <li>Optolong CLS-CCD clip-in</li>
+          <li>Dew heater para evitar rocío</li>
+          <li>Mochila de transporte y baterías externas</li>
+        </ul>
+      </div>
+      <div class="gear-card">
+        <h3>Software</h3>
+        <ul>
+          <li>APT (AstroPhotography Tool)</li>
+          <li>Siril · DeepSkyStacker</li>
+          <li>GIMP para el toque final</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACTO ====== -->
+  <section id="contact" class="text-section contact-section">
+    <h2>Contacto</h2>
+    <p>
+      ¿Te gustan estas imágenes? Puedes ponerte en contacto conmigo para comentar
+      el procesado, el equipo o posibles colaboraciones.
+    </p>
+    <p class="contact-links">
+      <!-- Cambia los enlaces por los tuyos -->
+      <a href="mailto:tucorreo@example.com">tucorreo@example.com</a> ·
+      <a href="https://github.com/tuusuario" target="_blank" rel="noreferrer">GitHub</a> ·
+      <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noreferrer">Instagram</a>
+    </p>
+  </section>
+
+  <!-- ====== PIE ====== -->
+  <footer class="site-footer">
+    <p>
+      © <span id="year"></span> · Astrofotografía por Tu Nombre ·
+      Construido con HTML + CSS + GitHub Pages
+    </p>
+  </footer>
+
+  <!-- ====== MODAL PARA IMAGEN + DATOS TÉCNICOS ====== -->
+    <div id="modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+        <button class="modal-close" aria-label="Cerrar">✕</button>
+        <h3 id="modal-title">Título del objeto</h3>
+        <img id="modal-image" class="modal-image" src="" alt="" />
+        <pre id="modal-info" class="modal-info"></pre>
+    </div>
+    </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+

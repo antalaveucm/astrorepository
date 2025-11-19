@@ -1,0 +1,463 @@
+/* ====== RESET SUAVE ====== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #050505;         /* Fondo general muy oscuro */
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* ====== LAYOUT GENERAL ====== */
+section {
+  padding: 3.5rem 1.2rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0.25rem 0;
+}
+
+.section-intro {
+  max-width: 720px;
+  margin: 0.5rem auto 2rem;
+  text-align: center;
+  color: #bbbbbb;
+}
+
+/* ====== TOP BAR ====== */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.4rem;
+  background: #050505;
+  border-bottom: 1px solid #262626;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f5f5f5;
+}
+
+.logo-mark {
+  font-size: 1.1rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.main-nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.2s ease-out;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* ====== HERO ====== */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+  background: #050505;
+  border-bottom: 1px solid #262626;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #888888;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  margin-bottom: 0.8rem;
+}
+
+.hero-subtitle {
+  color: #b5b5b5;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #e5e5e5;
+}
+
+/* ====== GALERÍA ====== */
+.gallery-section {
+  max-width: 1120px;
+  margin: 0 auto 1rem;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-direction: column;        /* Una tarjeta debajo de otra (vertical) */
+  gap: 2rem;
+}
+
+/* Tarjeta principal */
+.card {
+  background: #111111;
+  border-radius: 0;              /* Bordes cuadrados */
+  overflow: hidden;
+  border: 1px solid #262626;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  cursor: pointer;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out, background 0.18s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
+  border-color: #ffffff;
+  background: #151515;
+}
+
+/* Alternar lado de la imagen/texto */
+.card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.card-image {
+  position: relative;
+  flex: 1.1;
+  min-height: 260px;
+  max-height: 420px;
+  overflow: hidden;
+  background: #000;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Texto a un lado */
+.card-body {
+  flex: 0.9;
+  padding: 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+  color: #ffffff;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #c5c5c5;
+}
+
+/* Overlay con info técnica (hover) */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.8rem 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  pointer-events: none;
+}
+
+.card-overlay h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card-overlay pre {
+  margin: 0;
+  font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  white-space: break-spaces;
+}
+
+.card-image:hover .card-overlay {
+  opacity: 1;
+}
+
+/* Chips / etiquetas */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  margin-top: 0.7rem;
+  border-radius: 999px;
+  background: #1f1f1f;
+  color: #e0e0e0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+/* ====== SECCIONES DE TEXTO ====== */
+.text-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.text-section h2 {
+  text-align: left;
+  margin-bottom: 0.6rem;
+}
+
+.text-section p {
+  color: #d0d0d0;
+}
+
+/* ====== EQUIPO ====== */
+.gear-section {
+  padding-top: 2.5rem;
+}
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.gear-card {
+  background: #111111;
+  border-radius: 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid #262626;
+}
+
+.gear-card h3 {
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+}
+
+.gear-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.86rem;
+  color: #c0c0c0;
+}
+
+/* ====== CONTACTO ====== */
+.contact-section {
+  padding-bottom: 3rem;
+}
+
+.contact-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+/* ====== FOOTER ====== */
+.site-footer {
+  padding: 1.3rem 1rem 1.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #8a8a8a;
+  border-top: 1px solid #262626;
+  background: #050505;
+}
+
+/* ====== MODAL ====== */
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: min(1000px, 90vw);
+  max-height: 90vh;
+  background: #050505;          /* oscuro (ajusta al tema que uses) */
+  border-radius: 0;              /* bordes cuadrados */
+  padding: 1.4rem 1.6rem 1.2rem;
+  border: 1px solid #333333;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.8rem;
+  border: none;
+  background: transparent;
+  color: #bbbbbb;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #ffffff;
+}
+
+.modal h3 {
+  margin: 0 1.6rem 0.7rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 70vh;              /* casi pantalla completa */
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+  background: #000000;
+}
+
+.modal-info {
+  margin: 0;
+  font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.82rem;
+  white-space: break-spaces;
+  color: #dddddd;
+}
+
+/* opcional: responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 94vw;
+    margin: 0 0.8rem;
+    padding: 1.1rem 1.2rem 1rem;
+  }
+
+  .modal-image {
+    max-height: 60vh;
+  }
+}
+
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .hero {
+    padding-top: 4.2rem;
+  }
+
+  .card,
+  .card:nth-child(even) {
+    flex-direction: column;      /* Imagen arriba, texto abajo en móvil */
+  }
+
+  .card-image {
+    max-height: 320px;
+  }
+
+  .modal-content {
+    max-width: 94vw;
+    margin: 0 0.8rem;
+    padding: 1.1rem 1.2rem 1rem;
+  }
+
+  .modal-image {
+    max-height: 60vh;
+  }
+}
